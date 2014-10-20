@@ -49,6 +49,7 @@ public class User {
                         username,EncodedPassword,fName,lName,email,location));
         //We are assuming this always works.  Also a transaction would be good here !
         
+        
         return true;
     }
     
@@ -83,6 +84,39 @@ public class User {
     
     return false;  
     }
+    
+    public String[] getData(String username){
+    	String [] user = new String[4];
+    	
+    	
+    	 Session session = cluster.connect("instagrim");
+    	String query = "select * from userprofiles where login = '"+ username +"'";
+         PreparedStatement ps = session.prepare(query);
+         ResultSet rs = null;
+         BoundStatement boundStatement = new BoundStatement(ps);
+         rs = session.execute( // this is where the query is executed
+                 boundStatement.bind( // here you are binding the 'boundStatement'
+                         ));
+         if (rs.isExhausted()) {
+            
+         } else {
+        	 
+        		 for (Row row : rs) {
+                    user[0]= row.getString("first_Name");    
+                    user[1] = row.getString("last_Name");
+                    user[2] = row.getString("email");
+                    user[3] = row.getString("location");
+        		 }
+        	 
+         }
+		return user;
+    }
+      
+         
+         
+    	
+    
+    
        public void setCluster(Cluster cluster) {
         this.cluster = cluster;
     }
