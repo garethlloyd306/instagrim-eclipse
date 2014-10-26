@@ -26,7 +26,7 @@
        
         <article>
             <h3>Register as user</h3>
-            <form method="POST"  action="Register">
+            <form method="POST" enctype="multipart/form-data" action="Register">
                 <ul>
                     <li>User Name <input type="text" name="username"></li>
                     <li>Password <input type="password" name="password"></li>
@@ -34,6 +34,7 @@
                     <li> Last Name <input type="text" name = lastName></li>
                     <li> Email <input type = "email" name =email></li>
                     <li> Location <input type = "text" name =location></li>
+                    <li> Profile Pic <input type= "file" name ="profilePic"></li>
                 </ul>
                 <br/>
                 <input type="submit" value="Register"> 

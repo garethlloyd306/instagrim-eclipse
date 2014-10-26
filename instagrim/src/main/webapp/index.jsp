@@ -26,15 +26,16 @@
                
                     <%
                         
-                        LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-                     
-                            String UserName = lg.getUsername();
-                            if (lg.getlogedin()) {
-                    %>
+                    LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+                    if (lg != null) {
+                        String UserName = lg.getUsername();
+                        if (lg.getlogedin()) {
+                %>
+
 
                 <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
                 <li><a href="UserProfile.jsp"> Profile</a></li>
-                    <%}
+                    <%}}
                             else{
                                 %>
                  <li><a href="register.jsp">Register</a></li>
@@ -42,7 +43,9 @@
                 <%
                                         
                             
-                    }%>
+                    }
+                    
+                    %>
                     
             </ul>
         </nav>
