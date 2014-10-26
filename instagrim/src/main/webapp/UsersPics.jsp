@@ -52,6 +52,7 @@
         <footer>
             <ul>
                 <li class="footer"><a href="/Instagrim">Home</a></li>
+                <li class="footer"><a href = "/Instagrim/logout.jsp" >Logout </a></li>
             </ul>
         </footer>
     </body>

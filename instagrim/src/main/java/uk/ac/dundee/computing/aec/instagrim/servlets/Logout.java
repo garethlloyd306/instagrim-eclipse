@@ -52,8 +52,8 @@ public class Logout extends HttpServlet {
 	  System.out.println("Logged Out");
 		//}
 		
-		 request.setAttribute("LoggedIn", lg);
-         session.setAttribute("LoggedIn", lg);
+		 request.setAttribute("LoggedIn",null);
+         session.setAttribute("LoggedIn", null);
          System.out.println("Session in servlet "+session);
          RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
          rd.forward(request,response);
